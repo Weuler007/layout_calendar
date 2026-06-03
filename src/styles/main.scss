@@ -1,0 +1,86 @@
+// Variáveis
+$day-size: 100px;
+$border-size: 1px;
+$gap-size: 1px;
+$font-size: 30px;
+$font-family: Arial, sans-serif;
+$highlight-color: #ffbfcb;
+$default-color: #eee;
+$columns: 7;
+$padding: 10px;
+$transition-time: 0.5s;
+
+// Centralização total
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f9f9f9;
+  font-family: $font-family;
+}
+
+// Bloco principal
+.calendar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $gap-size;
+  padding: $padding;
+  width: ($columns * $day-size) + ($columns * $border-size * 2) + ($columns - 1) * $gap-size + ($padding * 2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  background: white;
+  border-radius: 6px;
+
+  &__day {
+    box-sizing: border-box;
+    width: $day-size;
+    height: $day-size;
+    background: $default-color;
+    border: $border-size solid black;
+    position: relative;
+    transition: all $transition-time ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    // Números automáticos
+    @for $i from 1 through 31 {
+      &:nth-child(#{$i})::before {
+        content: '#{$i}';
+        font-size: $font-size;
+        font-family: $font-family;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    // Hover refinado
+    &:hover {
+      cursor: pointer;
+      background: $highlight-color;
+      transform: translateY(-20px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  // Modificadores de início do mês
+  @each $day, $index in (sun: 6, mon: 0, tue: 1, wed: 2, thu: 3, fri: 4, sat: 5)
+  {
+    &--start-day-#{$day} {
+      & > .calendar__day:first-child {
+        margin-left: ($index * ($day-size + $border-size * 0 + $gap-size));
+      }
+    }
+  }
+
+  // Modificadores de comprimento do mês
+  @for $len from 28 through 31 {
+    &--month-length-#{$len} {
+      & > .calendar__day:nth-child(n + #{$len + 1}) {
+        display: none;
+      }
+    }
+  }
+}
