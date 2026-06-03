@@ -26,7 +26,10 @@ body {
   flex-wrap: wrap;
   gap: $gap-size;
   padding: $padding;
-  width: ($columns * $day-size) + ($columns * $border-size * 2) + ($columns - 1) * $gap-size + ($padding * 2);
+  width: (
+    ($columns * $day-size) + ($columns * $border-size * 2) + (($columns - 1) * $gap-size) + ($padding * 2)
+  );
+
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   background: white;
   border-radius: 6px;
@@ -70,7 +73,7 @@ body {
   {
     &--start-day-#{$day} {
       & > .calendar__day:first-child {
-        margin-left: ($index * ($day-size + $border-size * 0 + $gap-size));
+        margin-left: $index * ($day-size + $border-size * 0 + $gap-size);
       }
     }
   }
