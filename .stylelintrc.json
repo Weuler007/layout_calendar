@@ -1,6 +1,0 @@
-{
-  "extends": "@mate-academy/stylelint-config",
-  "rules": {
-    "scss/operator-no-newline-after": null
-  }
-}

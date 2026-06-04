@@ -22,12 +22,14 @@ body {
 
 // Bloco principal
 .calendar {
+  $column-width: $day-size + $border-size * 2 + $gap-size;
+
+  width: ($columns * $column-width - $gap-size + $padding * 2);
+
   display: flex;
   flex-wrap: wrap;
   gap: $gap-size;
   padding: $padding;
-  width: ($columns * $day-size) + ($columns * $border-size * 2) + (($columns - 1) * $gap-size) + ($padding * 2);
-
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   background: white;
   border-radius: 6px;
