@@ -12,10 +12,11 @@ body {
   border-radius: 6px;
   flex-wrap: wrap;
   gap: 1px;
-  width: 740px;
+  width: 712px;
+  margin-top: -16px;
+  margin-left: 6px;
   padding: 10px;
   display: flex;
-  box-shadow: 0 0 10px #00000026;
 }
 
 .calendar__day {
@@ -24,10 +25,10 @@ body {
   border: 1px solid #000;
   justify-content: center;
   align-items: center;
+  gap: 1px;
   width: 100px;
   height: 100px;
   transition: all .5s;
-  display: flex;
   position: relative;
 }
 
@@ -379,4 +380,4 @@ body {
 .calendar--month-length-28 > .calendar__day:nth-child(n+29), .calendar--month-length-29 > .calendar__day:nth-child(n+30), .calendar--month-length-30 > .calendar__day:nth-child(n+31), .calendar--month-length-31 > .calendar__day:nth-child(n+32) {
   display: none;
 }
-/*# sourceMappingURL=index.971c2ea4.css.map */
+/*# sourceMappingURL=layout_calendar.971c2ea4.css.map */
