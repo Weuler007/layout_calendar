@@ -8,9 +8,7 @@ const basic = {
   ...basicScenario,
   label: 'Elementary test',
   selectors: ['body'],
-  removeSelectors: [
-    'h1',
-  ],
+  removeSelectors: ['h1'],
   misMatchThreshold: 0.5,
   referenceUrl: basicScenario.referenceUrl + '/calendar/',
 };
@@ -27,6 +25,10 @@ const config = {
       height: 768,
     },
   ],
+  // 👇 Adicionado para corrigir o erro de spawn
+  engineOptions: {
+    executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe',
+  },
   scenarios: [
     {
       ...basic,

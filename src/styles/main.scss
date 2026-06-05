@@ -25,30 +25,31 @@ body {
 
 // Bloco principal
 .calendar {
-  $column-width: $day-size + $border-size * 2 + $gap-size;
+  $column-width: $day-size + $border-size * -2 + $gap-size;
 
   display: flex;
   flex-wrap: wrap;
   gap: $gap-size;
 
   width: ($columns * $column-width - $gap-size + $padding * 2);
+  margin-top: -16px;
+  margin-left: 6px;
   padding: $padding;
   border-radius: 6px;
 
   background: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-
   &__day {
     position: relative;
 
     gap: $gap-size;
     align-items: center;
+    justify-content: center;
 
     box-sizing: border-box;
-
     width: $day-size;
     height: $day-size;
     border: $border-size solid black;
+
     background: $default-color;
 
     transition: all $transition-time ease;
@@ -59,19 +60,19 @@ body {
         content: '#{$i}';
 
         position: absolute;
-        font-family: $font-family;
-
-        font-size: $font-size;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+
+        font-family: $font-family;
+        font-size: $font-size;
       }
     }
 
     // Hover refinado
     &:hover {
       cursor: pointer;
-      transform: translateY(-20px);
+      transform: translateY(-13px);
       background: $highlight-color;
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     }
