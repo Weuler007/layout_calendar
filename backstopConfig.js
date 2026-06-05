@@ -25,10 +25,8 @@ const config = {
       height: 768,
     },
   ],
-  // 👇 Adicionado para corrigir o erro de spawn
-  engineOptions: {
-    executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe',
-  },
+
+
   scenarios: [
     {
       ...basic,
