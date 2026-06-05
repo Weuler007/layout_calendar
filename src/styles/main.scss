@@ -12,47 +12,56 @@ $transition-time: 0.5s;
 
 // Centralização total
 body {
-  min-height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
-  background: #f9f9f9;
+  justify-content: center;
+
+  min-height: 100vh;
+
   font-family: $font-family;
+
+  background: #f9f9f9;
 }
 
 // Bloco principal
 .calendar {
   $column-width: $day-size + $border-size * 2 + $gap-size;
 
-  width: ($columns * $column-width - $gap-size + $padding * 2);
-
   display: flex;
   flex-wrap: wrap;
   gap: $gap-size;
+
+  width: ($columns * $column-width - $gap-size + $padding * 2);
   padding: $padding;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-  background: white;
   border-radius: 6px;
 
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+
   &__day {
+    position: relative;
+
+    gap: $gap-size;
+    align-items: center;
+
     box-sizing: border-box;
+
     width: $day-size;
     height: $day-size;
-    background: $default-color;
     border: $border-size solid black;
-    position: relative;
+    background: $default-color;
+
     transition: all $transition-time ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
     // Números automáticos
     @for $i from 1 through 31 {
       &:nth-child(#{$i})::before {
         content: '#{$i}';
-        font-size: $font-size;
-        font-family: $font-family;
+
         position: absolute;
+        font-family: $font-family;
+
+        font-size: $font-size;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -62,8 +71,8 @@ body {
     // Hover refinado
     &:hover {
       cursor: pointer;
-      background: $highlight-color;
       transform: translateY(-20px);
+      background: $highlight-color;
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     }
   }
