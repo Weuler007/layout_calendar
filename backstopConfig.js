@@ -18,10 +18,6 @@ const config = {
   fileNameTemplate: '{scenarioLabel}',
   onBeforeScript: 'puppet/onBefore.js',
   onReadyScript: 'puppet/onReady.js',
-  puppeteerConfig: {
-    headless: 'new',
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
-  },
   viewports: [
     {
       name: 'tablet_h',
@@ -29,7 +25,10 @@ const config = {
       height: 768,
     },
   ],
-
+  // 👇 Adicionado para corrigir o erro de spawn
+  engineOptions: {
+    executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe',
+  },
   scenarios: [
     {
       ...basic,
